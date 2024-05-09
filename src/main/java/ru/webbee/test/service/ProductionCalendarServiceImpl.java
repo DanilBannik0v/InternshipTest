@@ -20,7 +20,6 @@ public class ProductionCalendarServiceImpl implements ProductionCalendarService{
         LocalDate localDate = moscowTimeZonedDateTime.toLocalDate();
         LocalTime localTime = moscowTimeZonedDateTime.toLocalTime();
 
-        return productionCalendar.getWeekendList().contains(localDate) &&
-                localTime.isAfter(workDayBeginning) && localTime.isBefore(workDayEnding);
+        return !(!productionCalendar.getWeekendList().contains(localDate) & (localTime.isAfter(workDayBeginning) & localTime.isBefore(workDayEnding)));
     }
 }
